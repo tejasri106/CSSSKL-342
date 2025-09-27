@@ -1,0 +1,13 @@
+1. The new types are argc and argv[]: argc is just an integer that tells you how many things were typed on the 
+command line when starting the program. argv is basically an array of strings and each string is one of those arguments.
+
+2. Some options for file i/o are:
+ios::out is to open for writing
+ios::app  is to append
+ios::trunc overwrites the file before writing.
+ios::binary opens in binary mode instead of text.
+
+3. The values for top and bottom don't have a value yet as they're unintialized. 
+
+4. I can't tell if it printed all 3 files as my print statement to display what file I'm looking at wasn't working, but I believe the files should 
+print regardless of the OS systems because it's skipping over white space. 

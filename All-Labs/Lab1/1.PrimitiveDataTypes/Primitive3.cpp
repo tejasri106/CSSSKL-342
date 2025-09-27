@@ -1,19 +1,26 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-    cout << "Float: 0.58 " << "Rounded: " << myRoundingFunction(0.58) << endl;
-}
 
 int myRoundingFunction(float value) {
-    int returnValue;
-    int wholeNum = (int) value; 
-    int decimalPart = value - wholeNum;
-    if ((value >= 0 && decimalPart >= 0.5) || (value <= 0 && decimalPart >= 0.5)) {
-        returnValue = wholeNum + 1;
+    int wholeNum = static_cast<int>(value); 
+    float decimalPart = value - wholeNum;
+    if (value >= 0) {
+        if(decimalPart >= 0.5) {
+            return wholeNum + 1;
+        } else {
+            return wholeNum;
+        }
     } else {
-        returnValue = wholeNum;
+        if (decimalPart <= -0.5) {
+            return wholeNum + 1;
+        } else {
+            return wholeNum;
+        }
     }
+}
 
-    return returnValue;
+int main() {
+    int rounded = myRoundingFunction(0.58);
+    cout << "Float: 0.58 " << "Rounded: " << rounded << endl;
 }

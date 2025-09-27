@@ -1,0 +1,22 @@
+1. The file doesn't compile because xr is a reference variable made through the syntax 'int&', and reference variables must always be 
+declared and initialized before being passed as a reference for x.
+
+2. The function onePlus() increments the value passed to it as an argument (as a copy) by 1, however, the function doesn't return 
+anything, so the incremented value stays within the function and isn't returned to main. Since, the variables as passed by value and not 
+by reference, changes made to the value in the function won't affect the value in main.
+
+3. In the function refIncrement(), the argument is being passed as a reference and not as a copy. So the value being passed over as the
+argument has same address as the value in the main. So, changing the value at a reference changes the value for everything that was 
+initialized at that reference no matter the scope. 
+
+4. The function value() is taking in a string reference and will return a integer reference. It first loops through all the pairs in 
+the vector, if pair.name matches the string, then the reference to the val is returned. If it doesn't find a match, it creates a new pair
+with name = s and val = 0, pushes it to the vector, and returns the reference to its val. Ex: if you called value("apple") = 42, then 
+it'll find "apple" in the vector and change it's val to 42 since val's reference will ve returned from the function. 
+
+5. The value() function receives a string reference of a string that was passed in main. The const means that the argument is immutable 
+and it cannot be changed after its been initialized.
+
+6. The value() function returns a reference to the pair's val. Since the function returns a reference to an element inside a global vector, 
+it’s legal. The ++ operator to its return value takes the returned val of the pair which is a reference and increases the val by 1. 
+So, if the argument we passed didn't exist, the function will return {s, 0} and incrementing that will change the val to {s, 1}.
