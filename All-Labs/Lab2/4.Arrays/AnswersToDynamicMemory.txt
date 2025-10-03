@@ -1,0 +1,15 @@
+1. How are the declarations of the arrays set and set2 different than how they would be declared in Java?
+
+You're not creating a new reference to allocate for the array object like you would
+in java.
+
+2. Which version of the code do you think is better (pointer arthimitic or array index)? Why?
+
+Pointer arthimitic is better because it seemed to be faster and it also teaches about
+pointers and memory allocation.
+
+3. Why shuld we set all pointer variables in main() to null after deleting storage?
+
+After delete[] the memory is cleared, but the pointer stil holds an address. Dangling
+pointers can cause unexpected behavior. It is better to use nullptr as it 
+will immideatly crash the program instead of silently destroying memory/ 

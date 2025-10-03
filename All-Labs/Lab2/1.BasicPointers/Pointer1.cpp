@@ -29,6 +29,12 @@ void display2(int l, int m, int n, int o, int& p) {
   cout << "address of \"l\" (var1) is " << &l << endl;
 }
 
+void display3(int m, int* p) {
+  m = 4;
+  *p = 6;
+  cout << "*p: " << *p << " p: " << p << " &p: " << &p << endl;
+}
+
 int main()
 {
   int a = 3;
@@ -41,7 +47,8 @@ int main()
   aPtr = &a;
     
   display1(a, b, c, d, aPtr);
-  display2(a, b, c, d, aPtr);
+  display2(a, b, c, d, *aPtr);
+  
     
   cout << endl;
   cout << "\"aPtr\" is a pointer, whose value is " << aPtr << endl;
@@ -50,6 +57,14 @@ int main()
   cout << endl;
   cout << "\"aPtr\" points to the following value:  " << *aPtr << endl;
   cout << "This is the same as \"a\", or " << a <<endl;
-  
+
+  cout << "a: " << a << " b: " << b << endl;
+  display3(b, aPtr); 
+  cout << "display 3: " << "a: " << a << " b: " << b << endl;
+
+  *aPtr = 42;  
+  cout << "*aPtr is " << *aPtr << endl;
+  cout << "a is " << a << endl;
+
   // Your additional code here.
 }
