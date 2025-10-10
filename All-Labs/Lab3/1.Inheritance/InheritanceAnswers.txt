@@ -1,0 +1,15 @@
+1. What do you observe?
+
+I first noticed that they all run properly only if all of them are run together or in
+the correct order because the A,B,C files are dependent on the InheritanceDriver and
+vice versa. 
+
+2. How are the constructors and destructors called? in which order?
+
+A's constructor is called first because it's the base class and then B's constructor
+because it's derived from A, lastly, C's constructor is called because it's the 
+most derived class. 
+
+3. Can you tell the difference between using the "initialization list" or not?
+
+Yes I can, it runs before the constructor body and initializes it. 

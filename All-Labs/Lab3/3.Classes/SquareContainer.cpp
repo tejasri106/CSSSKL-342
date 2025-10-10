@@ -71,6 +71,15 @@ unsigned SquareContainer::capacity(void) const
 {
   return currentSize;
 }
+
+SquareContainer& SquareContainer::operator=(const SquareContainer& other)
+{
+  if (this != &other) {
+    clear();
+    currentSize = other.currentSize;
+  }
+  return *this;
+}
  
 // Utility function: copy contents of current object to new storage
 // "to" must be allocated at least as much memory as theSquares

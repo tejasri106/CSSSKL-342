@@ -15,6 +15,12 @@ using namespace std;
 
 class A
 {
+
+private:
+    string n;
+    int testData1;
+    int testData2;
+
 public:
     A();
     A(string name);

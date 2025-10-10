@@ -1,0 +1,3 @@
+1. Is there a problem with the fact that SquareContainer.h defines two classes?
+
+No because you're allowed to define multiple classes in one header. 

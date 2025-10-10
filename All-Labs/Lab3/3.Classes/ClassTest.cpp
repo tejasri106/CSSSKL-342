@@ -13,7 +13,7 @@ int main (int argc, char * const argv[]) {
       c.insertNext(s);
    }
    SquareContainer d(c); // copy
-   SquareContainer e = d; // assignment
+   SquareContainer e =   d; // assignment
 
    try {
       for (int i = 0; i < 21; i++) {
@@ -25,6 +25,10 @@ int main (int argc, char * const argv[]) {
       cerr << sqe.what();
    }
 
+   Square s1, s2;
+   s1.setSize(3);
+   s2.setSize(5);
+   
    
    
     return 0;

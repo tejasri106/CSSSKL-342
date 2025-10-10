@@ -43,6 +43,8 @@ class SquareContainer {
   // Current container capacity
   unsigned capacity(void) const;
 	
+  SquareContainer& operator=(const SquareContainer& other);
+
  private:
   // Utility functions
 

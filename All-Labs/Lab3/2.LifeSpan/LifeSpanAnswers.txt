@@ -1,0 +1,9 @@
+1. Try putting a SuperInt on the right hand side of an assignment statement using theValue(). Does it work? Why?
+
+It works because theValue() returns a const int&, so you can read from it. 
+
+2. Try putting a SuperInt on the left hand side of an assignment statement using theValue(). Does it work? Why?
+
+It doesn't work because theValue() returns a const int& and you can't assign a const 
+to it. 
+
