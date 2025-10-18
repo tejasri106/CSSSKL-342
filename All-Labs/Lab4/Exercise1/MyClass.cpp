@@ -26,6 +26,7 @@ MyClass& MyClass::operator=(const MyClass& rhs)
 {
     // we have seen this before: a = a is a legal assignment, and shouldn't do anything
     if (this != &rhs) {
+      clear();
       copy(rhs);
     }
     return *this;

@@ -1,0 +1,5 @@
+1. Look at the code in IteratorTest.cpp. What do you think it does? Compile the code (do you need to do anything "unusual" to get it to 
+compile?) and run it. Does it do what you think it would?
+
+A: The program creates a SquareContainer object and uses an interator to fill and print the data. When compiling,
+ I ran into an error saying the operator* definition didn’t match the declaration because of a const mismatch. 

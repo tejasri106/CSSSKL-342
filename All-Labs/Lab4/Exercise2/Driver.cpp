@@ -10,13 +10,15 @@
 
 using namespace std;
 
-void MySwap(Square &s1, Square &s2) {
+template <typename T>
+void MySwap(T &s1, T &s2) {
     Square t = s1;
     s1 = s2;
     s2 = t;
 }
 
-void MyBubbleSort(Square *data, int size) {
+template <typename T>
+void MyBubbleSort(T *data, int size) {
     for (int i = 0; i<size; i++) {
         for (int j = 0; j<size-1-i; j++) {
             if (data[j] < data[j+1])
@@ -25,7 +27,8 @@ void MyBubbleSort(Square *data, int size) {
     }
 }
 
-void printArray(string msg, Square *data, int size) {
+template <typename T>
+void printArray(string msg, T *data, int size) {
     cout << msg << endl;
     for (int i = 0; i<size; i++) {
         cout <<  data[i] << " ";
@@ -36,7 +39,7 @@ void printArray(string msg, Square *data, int size) {
 
 int main(int argc, char** argv)
 {
-    Square s1, s2;
+    Square<int> s1, s2;
 
     s1.setSize(5);
     s2.setSize(3);
@@ -56,11 +59,48 @@ int main(int argc, char** argv)
     
     // do bubble sort
     int  num[10] = {10, 9, 8, 1, 0, 7, 20, 14, 2, 4};
-    Square sArray[10];  // call initialize by default constructors
+    Square<int>* sArray[10];  // call initialize by default constructors
     for (int i = 0; i<10; i++) {
-        sArray[i].setSize(num[i]);
+        sArray[i]->setSize(num[i]);
     }
     printArray("Array before sorting:", sArray, 10);
     MyBubbleSort(sArray, 10);
     printArray("Array after sorting:", sArray, 10);
+
+    // tests after template
+    int num2[5] = {10, 3, 8, 1, 5};
+    Square<int>* sArray2[5];
+    for (int i = 0; i < 5; i++) {
+        sArray2[i] = new Square<int>();
+        sArray2[i]->setSize(num2[i]);
+    }
+    printArray("Squares before sort:", sArray, 5);
+    MyBubbleSort(sArray2, 5);
+    printArray("Squares after sort:", sArray, 5);
+
+    int size = 10; 
+    int num[10] = {10, 9, 8, 1, 0, 7, 20, 14, 2, 4};
+    Square<int>* sArray3 = new Square<int>[size];
+    for (int i = 0; i < size; i++) {
+        sArray3[i].setSize(num[i]);
+    }
+
+    printArray("Array before sort:", sArray3, size);
+    MyBubbleSort(sArray3, size);
+    printArray("Array after sort:", sArray3, size);
+
+    delete[] sArray3;
+
+    int size2 = 10; 
+    int num2[10] = {10, 9, 8, 1, 0, 7, 20, 14, 2, 4};
+    Square<float>* sArray4 = new Square<float>[5];
+    for (int i = 0; i < size2; i++) {
+        sArray3[i].setSize(num[i]);
+    }
+    printArray("Array before sort:", sArray3, size);
+    MyBubbleSort(sArray, size);
+    printArray("Array after sort:", sArray3, size);
+
+    delete[] sArray4;
+
 }
