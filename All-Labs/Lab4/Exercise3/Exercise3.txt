@@ -2,4 +2,20 @@
 compile?) and run it. Does it do what you think it would?
 
 A: The program creates a SquareContainer object and uses an interator to fill and print the data. When compiling,
- I ran into an error saying the operator* definition didn’t match the declaration because of a const mismatch. 
+ I ran into an error saying the operator* definition didn’t match the declaration because of a const mismatch. It did do what 
+ I expected, It filled all the elements while printing "Setting element {i} and then printed all the elements.
+
+2. Why do the iterator increment operators return an iterator? How do the two increment operators differ? Is the iterator they 
+return allocated dynamically, auto, or something else?
+
+A: It returns an iterator so the iterator operations can be used in other operations and increments. The prefix iterators return the updated
+iterator by reference and the postfix return the old iterator by value and then increments. They don't return dynamically or 
+auto, they're on the stack or a reference. 
+
+3. Change SquareContainer::iterator::operator*() so that it is a const method. What is this supposed to mean? When you try to compile 
+and run the program, what happens? Does this appear to be consistent with the declaration of that operator as const? Why or why not? 
+In your opinion, should that operator be declared const?
+
+A: It means that it doesn't modify the iterator inside the function. The program runs normally once I change the method in header file
+to const as well. This is consistent with what const means in c++ because it isn't modifying the iterator, just reading through it. If 
+the iterator is only reading, then it should be declared as const, if it's modifying or writing then it shouldn't.

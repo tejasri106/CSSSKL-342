@@ -1,0 +1,13 @@
+1. Do you think that MyClass::operator=() is doing a deep or shallow copy?
+The method is creating a deep copy because the copy() method is copying the value from the other object into a new memory. That means
+each object will get its own copy. 
+
+2. Do you notice any warning posted by the compiler? Is there a memory leak issue? How can you fix it?
+I didn't see any compilar errors, but there could be potential memory leak issues as the copy function keep creating new 
+memory everytime it copies an object, but it doesn't delete memory that ip might've been pointing to. We can fix this but freeing up
+memory in operator=.
+
+3. Is MyClass::setIp() implemented correctly? What exactly does it do?
+The method is updating the integer value stored at the memory pointed to by ip. So, the method isn't changing what ip points, rather it 
+changes the value stored at that location.
+
